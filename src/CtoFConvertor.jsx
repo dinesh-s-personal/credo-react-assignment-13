@@ -20,7 +20,7 @@ export const CtoFConvertor = () => {
     }
 
     return <div>
-        <h1>Assignment 3 - Celsius to Faranheit</h1>
+        <h1>Assignment 6 - Celsius to Faranheit using useContext</h1>
 
         <label style={{fontWeight:"bold"}}>Enter temperature in Celsius:</label>
         <input 

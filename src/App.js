@@ -1,4 +1,5 @@
 import './App.css';
+import { CtoFConvertor } from './CtoFConvertor';
 
 function App() {
   return (
