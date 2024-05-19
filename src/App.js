@@ -5,6 +5,18 @@ import { AppRoutes } from './router/routes';
 import { Registration } from './screens/student_forms/registration';
 import { EditStudent } from './screens/student_forms/edit';
 import { LoginPage, StudentList } from './screens';
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
+import { studentFormApi } from './redux/services/studentform';
+
+const store = configureStore({
+  reducer: {
+    [studentFormApi.reducerPath]: studentFormApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) => 
+    getDefaultMiddleware()
+      .concat(studentFormApi.middleware),
+})
 
 const protectedRouteLoader = () => {
   if (localStorage.getItem('loginStatus') !== 'Login successful'){
@@ -23,7 +35,7 @@ const publicRouteLoader = () => {
 const router = createBrowserRouter(
   [
     {
-      path: AppRoutes.loginn,
+      path: AppRoutes.login,
       loader: publicRouteLoader,
       element: <LoginPage /> 
     },
@@ -51,7 +63,9 @@ const router = createBrowserRouter(
 )
 
 function App() {
-  return <RouterProvider router = {router}></RouterProvider>
+  return <Provider store={store}> 
+      <RouterProvider router = {router}></RouterProvider>
+    </Provider>
 }
 
 export default App;
