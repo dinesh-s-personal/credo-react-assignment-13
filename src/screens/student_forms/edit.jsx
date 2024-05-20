@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, Stack } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../router/routes";
 
@@ -14,17 +14,12 @@ export const EditStudent = () => {
         objNavigate(AppRoutes.students);
     }
 
-    return <div>
-        <Row>
-            <Col>
-                <h2>Student Edit Form</h2>
-            </Col>
-            <Col>
-                <Button onClick={btnSave}>Save</Button>
-            </Col>
-            <Col>
-                <Button onClick={btnBack}>Back</Button>
-            </Col>
-        </Row>
+    return <div style={{margin: "10px"}}>
+
+        <Stack direction="horizontal" gap={3}>
+            <h2 className="me-auto">Student Edit Form</h2>
+            <Button onClick={btnSave} variant="primary">Save</Button>
+            <Button onClick={btnBack} variant="outline-primary">Back</Button>
+        </Stack>
     </div>
 }

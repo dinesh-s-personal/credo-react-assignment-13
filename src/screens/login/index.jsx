@@ -16,29 +16,42 @@ export const LoginPage = () => {
         objNavigate(AppRoutes.students);
     };
 
-    return <div className="justify-content-md-center align-items-center row w-100 offset-md-4">
-        <h2>Login Page</h2>
+    return <div className="justify-content-center align-items-center vh-100 d-flex">
+        <Form onSubmit={onFormSubmit} className="form-container">
 
-        <Form onSubmit={onFormSubmit}>
-            <Form.Group as={Row} className="mb-3" controlId="formHorizontalUserName">
-                <Form.Label column sm={2}>
-                UserName
-                </Form.Label>
-                <Col sm={3}>
-                <Form.Control type="text" placeholder="UserName" />
-                </Col>
-            </Form.Group>
+            <Row>
+                <h2>Provide your login credentials</h2>
+            </Row>
+            
+            <Row>
+                <Form.Group as={Row} className="mb-10" controlId="formHorizontalUserName">
+                    <Form.Label column sm={25}>
+                    UserName
+                    </Form.Label>
+                    <Col sm={25}>
+                    <Form.Control type="text" placeholder="UserName" />
+                    </Col>
+                </Form.Group>
+            </Row>
 
-            <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
-                <Form.Label column sm={2}>
-                Password
-                </Form.Label>
-                <Col sm={3}>
-                <Form.Control type="password" placeholder="Password" />
-                </Col>
-            </Form.Group>
+            <Row>
+                <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
+                    <Form.Label column sm={25}>
+                    Password
+                    </Form.Label>
+                    <Col sm={25}>
+                    <Form.Control type="password" placeholder="Password" />
+                    </Col>
+                </Form.Group>
+            </Row>
 
-            <Button variant="primary" type="submit" onClick={btnLogin} block>Login</Button>
+            <Row>
+                <Form.Group as={Row} className="mb-3">
+                    <Col sm={{ span: 10, offset: 5 }}>
+                    <Button variant="primary" type="submit" onClick={btnLogin} block>Login</Button>
+                    </Col>
+                </Form.Group>
+            </Row>
         </Form>
     </div>
 }
