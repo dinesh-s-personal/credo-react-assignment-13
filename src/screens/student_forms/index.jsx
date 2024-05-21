@@ -8,7 +8,7 @@ export const StudentList = () => {
 
     const objNavigate = useNavigate();
 
-    const {isLoading, isError, isSuccess, data} = useGetAllStudentsQuery();
+    const {isLoading, isError, isSuccess, data} = useGetAllStudentsQuery(null, { refetchOnMountOrArgChange: true });
 
     const btnNewStudent = () => {
         objNavigate(AppRoutes.registration);

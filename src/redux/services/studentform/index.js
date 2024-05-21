@@ -9,10 +9,14 @@ export const studentFormApi = createApi({
 
     getAllStudents: builder.query({
         query: () => ({ url: '/student-form'})
+    }),
+
+    addStudent: builder.mutation({
+      query: (payload) => ({ url: '/student-form', method: 'POST', body: payload})
     })
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetAllStudentsQuery } = studentFormApi
+export const { useGetAllStudentsQuery, useAddStudentMutation } = studentFormApi
