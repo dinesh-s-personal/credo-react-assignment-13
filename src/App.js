@@ -27,7 +27,7 @@ const protectedRouteLoader = () => {
 
 const publicRouteLoader = () => {
   if (localStorage.getItem('loginStatus') === 'Login successful'){
-    return redirect(AppRoutes.todoapp);
+    return redirect(AppRoutes.students);
   }
   return null;
 }
